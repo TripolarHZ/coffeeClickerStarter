@@ -98,7 +98,7 @@ function renderProducers(data) {
   let pc = document.getElementById('producer_container');
 
   // call the deleteAllChildNodes function and pass it the above producerContainer element
-  deleteAllChildNodes(pc);
+  deleteAllChildNodes(producerContainer);
 
   // you do not need to edit the following code, but for understanding, this gets the unlocked producers,
   // and for each producer makes a little html div with that producer's info
@@ -177,11 +177,11 @@ function tick(data) {
 
 // add a 'click' event listener to the bigCoffee element (that you referenced above)
 // the event listener should call the clickCoffee function, and pass in the global data object
-bigCoffee.addEventListener('click',clickCoffee);
+bigCoffee.addEventListener('click',() => {clickCoffee(data)});
 
 // add a 'click' event listener to the element (referenced at the top of the file)
 // the event listener should call the buyButtonClick function and pass it the event, and the global data object
-producerContainer.addEventListener('click',buyButtonClick(producerContainer,data));
+producerContainer.addEventListener('click',(event) => {buyButtonClick(event,data)});
 
 // You do not need to edit this last line. This simple runs your tick function every 1000ms, or 1s
 setInterval(() => tick(data), 1000);
